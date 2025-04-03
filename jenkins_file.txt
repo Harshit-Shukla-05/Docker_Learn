@@ -1,0 +1,37 @@
+pipeline{
+    agent {label "AgentJames"}
+    environment {
+        GIT_REPO = 'https://github.com/Harshit-Shukla-05/Docker_Learn.git'
+        GIT_BRANCH = 'learn_jenkins_demo'
+    }
+    stages{
+        stage("Start print statement"){
+            steps{
+                echo "WELCOME To The Project"
+            }
+        }
+        stage("code"){
+            steps{
+                echo "Code ....."
+                git url: "${GIT_REPO}", branch: "${GIT_BRANCH}"
+            }
+        }
+        stage("build"){
+            steps{
+                 echo "Build ....."
+                 sh "docker build -t hello-world-image ."
+                 echo "Image Created.."
+            }
+        }
+        stage("test"){
+            steps{
+                 echo "Test ....."
+            }
+        }
+        stage("deploy"){
+            steps{
+                 sh 'echo "Deploy ....."'
+            }
+        }
+    }
+}
