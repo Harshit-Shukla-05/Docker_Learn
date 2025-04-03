@@ -40,7 +40,10 @@ pipeline{
 
 //##############################################################################################333
 
-NOTE : If you get below issue while creating build then do "sudo reboot" on agent EC2
+NOTE : If you get below mentioned issue while creating build then do 
+                     > "sudo reboot" on agent EC2 (if still issue is there try below)
+                     >  do "sudo systemctl restart jenkins" in Master EC2 
+ISSUE :                  
 "docker build -t hello-world-image:latest .
 DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
             Install the buildx component to build images with BuildKit:
