@@ -19,23 +19,24 @@ pipeline{
         stage("build"){
             steps{
                  echo "Build ....."
-                 sh "docker build -t hello-world-image ."
+                 sh "docker build -t hello-world-image:latest ."
                  echo "Image Created.."
             }
         }
         stage("test"){
             steps{
-                 echo "Test ....."
+                 echo "Test .....Done"
             }
         }
         stage("deploy"){
             steps{
-                 sh 'echo "Deploy ....."'
+                 echo "Deploy ....."
+                 sh "docker run -d --name hw-cont -p 80:80 hello-world-image:latest"
+                 
             }
         }
     }
 }
-
 
 
 //##############################################################################################333
